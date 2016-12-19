@@ -1,3 +1,4 @@
+# this image should be created with name cuberite/ci-android
 FROM debian:jessie
 
 # Install testing repository for later version of cmake.
@@ -9,8 +10,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	clang \
 	git \
 	lua5.1 \
-	lua5.2 \
-	lua5.3 \
 	make \
 	openjdk-7-jre-headless \
 	openssh-server \
@@ -21,7 +20,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Install cmake.
 RUN apt-get install -y --no-install-recommends -t testing cmake
 
-# Required for SSHD.	
+# Required for SSHD.
 RUN mkdir /var/run/sshd
 
 # Add the jenkins user.
