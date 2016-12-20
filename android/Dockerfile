@@ -1,11 +1,11 @@
 # this image should be created with name cuberite/ci-android
 FROM debian:jessie
 
-# Install testing repository for later version of cmake.
+# Install testing repository for later version of cmake
 RUN echo "deb http://ftp.debian.org/debian testing main" >> /etc/apt/sources.list &&\
 	echo "APT::Default-Release \"stable\";" /etc/apt/apt.conf.d/99defaultrelease
 
-# Install requirements from debian repositories.
+# Install requirements from debian repositories
 RUN apt-get update && apt-get install -y --no-install-recommends \
 	clang \
 	git \
@@ -17,13 +17,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	wget \
 	zip
 
-# Install cmake.
+# Install cmake
 RUN apt-get install -y --no-install-recommends -t testing cmake
 
-# Required for SSHD.
+# Required for SSHD
 RUN mkdir /var/run/sshd
 
-# Add the jenkins user.
+# Add the jenkins user
 RUN useradd -m -d /home/jenkins -s /bin/sh jenkins &&\
     echo "jenkins:jenkins" | chpasswd
 
