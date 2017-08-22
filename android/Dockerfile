@@ -5,17 +5,25 @@ FROM debian:jessie
 RUN echo "deb http://ftp.debian.org/debian testing main" >> /etc/apt/sources.list &&\
 	echo "APT::Default-Release \"stable\";" /etc/apt/apt.conf.d/99defaultrelease
 
-# Install requirements from debian repositories
+RUN echo "deb http://ftp.debian.org/debian/ jessie-backports main non-free contrib" >> /etc/apt/sources.list
+
+# Install required software
 RUN apt-get update && apt-get install -y --no-install-recommends \
 	clang \
+	gcc \
+	g++ \
+	cmake \
 	git \
 	lua5.1 \
 	make \
-	openjdk-7-jre-headless \
 	openssh-server \
 	unzip \
 	wget \
 	zip
+
+RUN apt-get install -y --no-install-recommends -t jessie-backports \
+	openjdk-8-jre-headless \
+	ca-certificates-java
 
 # Install cmake
 RUN apt-get install -y --no-install-recommends -t testing cmake
