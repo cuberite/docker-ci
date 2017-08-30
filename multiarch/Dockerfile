@@ -1,4 +1,4 @@
-# this image should be created with name cuberite/ci-minimal
+# this image should be created with name cuberite/ci-multiarch
 FROM multiarch/crossbuild
 
 RUN echo "deb http://ftp.debian.org/debian/ jessie-backports main non-free contrib" >> /etc/apt/sources.list
