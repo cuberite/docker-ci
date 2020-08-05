@@ -1,33 +1,22 @@
 # this image should be created with name cuberite/ci-minimal
-FROM debian:jessie
+FROM debian:buster
 
 RUN echo "deb http://ftp.debian.org/debian/ jessie-backports main non-free contrib" >> /etc/apt/sources.list
 
 # Install required software
 RUN apt-get update && apt-get install -y --no-install-recommends \
-	clang \
-	gcc \
-	g++ \
+	clang-10 \
+	gcc-10-multilib \
+	g++-10-multilib \
 	cmake \
 	git \
 	lua5.1 \
 	make \
-	openssh-server
-
-RUN apt-get install -y --no-install-recommends -t jessie-backports \
-	openjdk-8-jre-headless \
+	openssh-server \
+	wget \
+	zip \
+	openjdk-11-jre-headless \
 	ca-certificates-java
-
-# Required for 32 bit builds
-RUN dpkg --add-architecture i386 &&\
-	apt-get update &&\
-	apt-get install -y --no-install-recommends \
-	libc6-dev-i386 \
-	libstdc++6:i386 \
-	libgcc1:i386 zlib1g:i386 \
-	zlib1g-dev:i386 \
-	linux-libc-dev:i386 \
-	g++-multilib
 
 # Required for SSHD
 RUN mkdir /var/run/sshd
