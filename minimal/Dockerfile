@@ -3,9 +3,9 @@ FROM debian:buster
 
 # Install required software
 RUN apt-get update && apt-get install -y --no-install-recommends \
-	clang-10 \
-	gcc-10-multilib \
-	g++-10-multilib \
+	clang \
+	gcc-multilib \
+	g++-multilib \
 	cmake \
 	git \
 	lua5.1 \
