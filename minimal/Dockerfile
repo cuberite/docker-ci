@@ -1,8 +1,6 @@
 # this image should be created with name cuberite/ci-minimal
 FROM debian:buster
 
-RUN echo "deb http://ftp.debian.org/debian/ jessie-backports main non-free contrib" >> /etc/apt/sources.list
-
 # Install required software
 RUN apt-get update && apt-get install -y --no-install-recommends \
 	clang-10 \
