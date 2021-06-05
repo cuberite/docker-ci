@@ -1,10 +1,12 @@
-# this image should be created with name cuberite/ci-minimal
+# this image should be created with name cuberite/docker-ci/minimal
 FROM debian:buster
+
+RUN echo 'deb http://deb.debian.org/debian buster-backports main' > /etc/apt/sources.list.d/backports.list
 
 # Install required software
 RUN apt-get update && apt-get install -y --no-install-recommends \
 	clang \
-	clang-tidy \
+	clang-tidy-11 \
 	gcc-multilib \
 	g++-multilib \
 	cmake \
@@ -16,6 +18,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	zip \
 	openjdk-11-jre-headless \
 	ca-certificates-java
+
+RUN update-alternatives --install /usr/bin/run-clang-tidy run-clang-tidy /usr/bin/run-clang-tidy-11 900
 
 # Required for SSHD
 RUN mkdir /var/run/sshd
