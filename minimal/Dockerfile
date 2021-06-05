@@ -4,6 +4,7 @@ FROM debian:buster
 # Install required software
 RUN apt-get update && apt-get install -y --no-install-recommends \
 	clang \
+	clang-tidy \
 	gcc-multilib \
 	g++-multilib \
 	cmake \
