@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'derpci'
+        label 'docker'
     }
     stages {
         stage('build') {
