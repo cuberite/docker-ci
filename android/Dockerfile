@@ -25,7 +25,7 @@ RUN useradd -m -d /home/jenkins -s /bin/sh jenkins &&\
     echo "jenkins:jenkins" | chpasswd
 
 # Install NDK
-RUN wget https://dl.google.com/android/repository/android-ndk-r20b-linux-x86_64.zip -O /home/jenkins/android-ndk.zip &&\
+RUN wget --quiet https://dl.google.com/android/repository/android-ndk-r20b-linux-x86_64.zip -O /home/jenkins/android-ndk.zip &&\
 	cd /home/jenkins &&\
 	unzip android-ndk.zip &&\
 	rm /home/jenkins/android-ndk.zip
