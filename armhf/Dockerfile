@@ -1,10 +1,8 @@
 # this image should be created with name cuberite/ci-armhf
-FROM debian:buster
+FROM debian:bullseye
 
 # Install required software
 RUN apt-get update && apt-get install -y --no-install-recommends \
-	gcc-arm-linux-gnueabihf \
-	g++-arm-linux-gnueabihf \
 	cmake \
 	git \
 	lua5.1 \
