@@ -15,7 +15,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	wget \
 	zip \
 	openjdk-11-jre-headless \
-	ca-certificates-java
+	ca-certificates-java \
+	python3
 
 # Required for SSHD
 RUN mkdir /var/run/sshd
