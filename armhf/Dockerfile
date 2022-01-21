@@ -13,7 +13,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	openjdk-11-jre-headless \
 	ca-certificates-java \
 	python3 \
-	gcc-aarch64-linux-gnu
+	gcc-aarch64-linux-gnu \
+	g++-aarch64-linux-gnu
 
 # Required for SSHD
 RUN mkdir /var/run/sshd
